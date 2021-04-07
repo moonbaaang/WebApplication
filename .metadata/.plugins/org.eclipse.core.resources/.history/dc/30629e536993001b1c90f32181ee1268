@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/*
+var b = "<br>";
+var ar1 = [1, "java", true, 200.99, "300"];
+ar1.push(100);
+ar1.unshift(200);
+//ar1.pop();
+//ar1.shift();
+
+
+document.write(ar1.length + b);
+document.write(ar1+b);
+document.write(ar1.join("/")+b);
+for(var i =0 ; i<ar1.length; i++){
+	document.write(i+":"+ar1[i]+b);
+}
+for(var i in ar1){
+	document.write(i+":"+ar1[i]+b);
+}
+
+
+var ar2 = new Array();
+ar2.push(100);
+ar2.unshift(200);
+document.write(ar2.join("|")+b);
+*/
+
+</script>
+
+<h1> 과일을 고르세요 </h1>
+<form name="f">
+<input type="checkbox" name=fruit value=딸기>딸기
+<input type="checkbox" name=fruit value=사과>사과
+<input type="checkbox" name=fruit value=바나나>바나나
+<input type="checkbox" name=fruit value=포도>포도
+<input type="checkbox" name=fruit value=귤>귤
+<input type="checkbox" name=fruit value=오렌지>오렌지
+</form>
+
+<script>
+	var fruit = ['딸기','사과','바나나','포도','귤','오렌지'];
+	var input_list = document.getElementsByTagName("input");
+	document.write(typeof input_list.length + b);
+</script>
+
+</body>
+</html>

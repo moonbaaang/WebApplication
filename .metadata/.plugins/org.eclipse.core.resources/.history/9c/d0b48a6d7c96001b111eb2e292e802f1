@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	//$("h1").click(function(){
+		//$('h1').css('border', 'solid 3px aqua');
+		$("h1").css('color','red');
+//		$("h1").css('color','red').on('click', function(){})
+		$("h1").on('click', function(){
+			//$('h1').css('border', 'solid 3px aqua');
+			$(this).css('border', 'solid 3px aqua');
+	});
+	
+		//$("div").mouseover(function(){
+		$("div").on('mouseover', function(){	
+			$("div").css("background-color","blue");
+		});
+		$("div").mouseout(function(){
+			$("div").css("background-color","orange");
+		});
+		
+		$("#stop").on('click', function(){
+			$('h1').off('click');
+		});
+		
+		$('#one').one('click', function(){ // 한번만 실행하고 만다.
+			alert(1);	
+		});
+		
+		$('a').on('click', function(event){
+			//event.preventDefault();
+			$(this).css("text-decoration", "none");
+			$(this).css("color", "green");
+		})
+}); //ready end
+</script>
+</head>
+<body>
+<h1>클릭하세요</h1>
+<h1>클릭하세요</h1>
+<div> 마우스 올려보세요. </div>
+<button id="stop"> 동작그만 </button>
+<button id="one"> 1번만 동작 </button>
+<a href="http://www.naver.com">네이버로 이동</a>
+
+</body>
+</html>

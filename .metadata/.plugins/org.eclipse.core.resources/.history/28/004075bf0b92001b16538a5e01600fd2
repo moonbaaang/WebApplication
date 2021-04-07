@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<table border="3">
+<tr><td>제목</td><td><input type=text name=title></td></tr>
+<tr><td>내용</td><td><textarea rows=3, cols=60></textarea></td></tr>
+<tr><td>작성자</td><td><select><option>oracle</option><option>jsp</option><option>spring</option></select></td></tr>
+<tr><td>암호</td><td><input type="password" name=password></td></tr>
+<td colspan=2><input type="button" value="boardwritesuccess.html"></td>
+</table>
+
+</body>
+</html>

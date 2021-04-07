@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>10</h1>
+<h2>글자 입력가능합니다.</h2>
+<textarea rows=5 cols=100>
+
+</textarea>
+</body>
+</html>

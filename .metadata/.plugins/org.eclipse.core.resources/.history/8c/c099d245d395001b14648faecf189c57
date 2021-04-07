@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	document.querySelector("a").onclick=function(e){ // 이벤트 객체 생성, 후 멈춤
+		e.preventDefault(); // 기본 동작 멈춤
+	}
+	document.querySelector("#f").onsubmit = function(e){ // form태그 내 submit이 있다면 기본동작을 하지 않음
+		e.preventDefault(); // 기본 동작 멈춤
+	}
+	
+	var button = document.querySelector("#inform");
+	var div = document.querySelector("#result");
+	button.onclick = function(e){
+		var a_list = document.querySelectorAll("a");
+//		for(var i = 0; i < a_list.length; i++){
+			//a_list[i].innerHTML+"-"+a_list[i].href;
+//			div.innerHTML += a_list[i].innerHTML + "-" +a_list[i].href+"<br>";
+//		}
+		
+		a_list.forEach(function(one){
+			div.innerHTML += one.innerHTML + "-" +one.href+"<br>";
+		});
+	}
+	
+	//mouse 이동시마다 색상 변경
+	document.querySelector("#mousetest").onclick= function(){
+		document.querySelector("#mousetest").style.backgroundColor="green";
+	}
+	
+	document.querySelector("#mousetest").onmouseover= function(){
+		document.querySelector("#mousetest").style.backgroundColor="blue";
+	}
+	
+	document.querySelector("#mousetest").onmouseout= function(){
+		document.querySelector("#mousetest").style.backgroundColor="red";
+	}
+}
+</script>
+</head>
+<body>
+<a href="http://www.multicampus.co.kr" target="_black">멀캠으로 이동</a> <!-- 새창을 연다. -->
+<a href="http://www.google.com" target="_black">구글로 이동</a>
+<a href="http://www.naver.com" target="_black">네이버로 이동</a>
+<a href="http://www.daum.net" target="_black">다음으로 이동</a>
+
+
+<!-- a태그 
+1. 화면 구성요소
+2. css가 들어가있음 
+3. 이벤트 내장 - href 이동(기본적으로 파란글씨, 밑줄) 
+
+기본 내장
+a, <input type=submit, reset> 
+-->
+
+<form id=f action="a.jsp">
+	<input type=text>
+	<input type=submit value=전송>
+</form>
+
+<button id=inform><b>링크정보</b></button>
+<div id=result>
+	
+</div>
+<!-- 링크정보 버튼을 클릭하면 
+a태그 존재하는 만큼 각 a태그
+href 내용을 출력하도록 
+ -->
+ 
+<div id="mousetest">마우스 올려보세요</div>
+ 
+ 
+ 
+</body>
+</html>

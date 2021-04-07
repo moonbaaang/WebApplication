@@ -1,0 +1,33 @@
+package servlettest;
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import com.sun.jmx.snmp.Enumerated;
+
+@WebServlet("/all")
+public class AllServlet extends HttpServlet {
+	private static final long serialVersionUID = 1L;
+	private void method() {}
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//get방식일때만
+		method();
+	}
+
+	protected void doPost
+	(HttpServletRequest request, HttpServletResponse response) 
+			throws ServletException, IOException {
+		//post방식일때만
+		method();
+	}
+	
+	private void login() {
+		Enumeration<String> names
+	}
+
+} //class end

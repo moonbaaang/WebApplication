@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+	<style>
+		h1{color:red;}
+	</style>
+	<script type="text/javascript">
+		alert("클릭");
+		document.write("브라우저 출력1");
+		console.log("콘솔출력");
+		
+		document.write(10/3+"<br>"); // 자바 3 js 3.333333
+		document.write(typeof(10/3)+"<br>"); 
+		document.write(parseInt(10/3)+"<br>"); 
+		document.write(10==10.0+"<br>")
+	</script>
+</head>
+<body>
+	<script>
+	//document.write("브라우저 출력2");
+	</script>
+
+</body>
+</html>

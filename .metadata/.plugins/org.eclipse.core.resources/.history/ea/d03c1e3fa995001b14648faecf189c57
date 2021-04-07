@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+// dom 방법 2: window창에 문서 로딩 완료되면 함수 실행
+//window.onload = function(){alert(document.getElementById("first").innerHTML)}
+
+
+//callback 방식 (함수를 매개변수로 사용)
+// dom 방법 3 : 의도적 시간 지연
+setTimeout(function(){
+//	alert(document.getElementById("first").innerHTML);
+//	document.getElementById("first").style.color="red"
+	document.getElementsByTagName("h1");
+	}, 1000);
+</script>
+</head>
+<body>
+<h1 id="first"> 제목 </h1>
+<p> 내용을 나타내는 문단입니다. </p>
+<h1 id="second">제목</h1>
+
+<!-- dom 방법 1 : 해당 태그 출력 이후 접근 방법
+<script>
+alert(document.getElementById("first").innerHTML)
+</script>
+ -->>
+
+</body>
+</html>

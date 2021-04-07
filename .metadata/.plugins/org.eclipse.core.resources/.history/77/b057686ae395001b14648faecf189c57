@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+	alert("jquery 시작")
+}) // window.onload()와 의미 동일
+// ready는 함수이기에 ready(function(){})
+</script>
+</head>
+<body>
+
+</body>
+</html>

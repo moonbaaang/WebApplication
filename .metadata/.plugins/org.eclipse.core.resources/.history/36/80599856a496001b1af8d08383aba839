@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+img{
+width:300px;
+height:300px;
+}
+</style>
+
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+	}); //ready end
+</script>
+</head>
+<body>
+<img src="/html/images/android.jpg" style="width:200px height:200px">
+<img src="/html/images/chrome.jpg" style="width:200px height:200px">
+<img src="/html/images/google.jpg" style="width:200px height:200px">
+<!-- width=200 height=200으로도 가능 -->
+</body>
+</html>

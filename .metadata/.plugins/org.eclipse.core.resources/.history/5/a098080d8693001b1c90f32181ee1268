@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script>
+	alert("메시지 - 확인 버튼을 클릭해야만 없어집니다.");
+	var prom = prompt("이름을 입력하세요.");
+	document.write(prom+"<br>")
+	var conf = confirm("확실합니까?") // 확인, 취소, ok/cancel 버튼 2개 마우스 입력
+	document.write(confirm+"<br>")
+
+</script>
+</body>
+</html>

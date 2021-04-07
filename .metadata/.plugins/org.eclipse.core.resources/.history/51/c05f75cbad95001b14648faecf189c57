@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+ window.onload = function(){
+	 document.querySelector("h1").innerHTML = "제목수정";
+	 document.querySelector("div").innerHTML = "수정";
+ }
+</script>
+</head>
+<body>
+<h1>제목</h1>
+<div>추가합니다</div>
+
+</body>
+</html>

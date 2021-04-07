@@ -1,0 +1,16 @@
+127.0.0.1 - - [04/Apr/2021:15:19:37 +0900] "GET / HTTP/1.1" 404 1115
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:19:38 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 200 567
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:19:38 +0900] "GET /favicon.ico HTTP/1.1" 404 1126
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:07 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 200 608
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:09 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:09 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:09 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:10 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:12 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:12 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:13 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:13 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:21:13 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 304 -
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:22:20 +0900] "GET /TILCSS/default_id.html HTTP/1.1" 200 632
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:43:29 +0900] "GET /TILCSS/attribute_basic.html HTTP/1.1" 200 304
+0:0:0:0:0:0:0:1 - - [04/Apr/2021:15:43:51 +0900] "GET /TILCSS/attribute_basic.html HTTP/1.1" 200 309

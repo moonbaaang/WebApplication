@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+.box{
+	display: inline-block; /*inline은 크기와는 관계없이 내용의 크기만큼 설정함 width,height 필요 없음*/
+	width: 100px;
+	height: 100px;
+	background: red;
+	color: white;
+	float: right;
+}
+
+
+</style>
+</head>
+<body>
+
+<div class=box id=one>One</div>
+<div class=box id=two>two</div>
+<div class=box id=three>Three</div>
+<div class=box id=four>Four</div>
+
+<p> 단락입니다. </p>
+</body>
+</html>

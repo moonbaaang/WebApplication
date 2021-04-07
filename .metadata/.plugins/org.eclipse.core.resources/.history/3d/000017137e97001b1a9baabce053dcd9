@@ -1,0 +1,42 @@
+package servlettest;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/gugudan")
+public class GugudanServlet extends HttpServlet {
+/*
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		//request.setCharacterEncoding("utf-8");
+	}
+*/
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String dan = request.getParameter("dan");
+		int outputdan = 0;
+		if(dan==null||dan.equals("")) {
+			outputdan = 2;
+		}
+		else {
+			int dan2 = Integer.parseInt(dan);
+			if(dan2 >= 2 && dan2 <= 9) {
+				outputdan = dan2;
+			} else {
+				outputdan = 10;
+			}
+		}
+		String format = "<table border=3>";
+		for(int i=1; i<=9; i++) {
+			format += "<tr><td>"+outputdan+"*"+i+"="+(outputdan*i)+"</td></tr>";			
+		}
+		format += "</table>";
+		response.setContentType("text/html; charset=utf-8");
+		PrintWriter out = response.getWriter();
+		out.println(format);
+	}
+}

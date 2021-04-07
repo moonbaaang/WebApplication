@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload=function(){
+	document.querySelector("a").onclick=function(e){
+		e.preventDefault(); // 기본 동작 멈춤
+	}
+}
+</script>
+</head>
+<body>
+<a href="http://www.multicampus.co.kr" target="_black">멀캠으로 이동</a> <!-- 새창을 연다. -->
+<!-- a태그 
+1. 화면 구성요소
+2. css가 들어가있음 
+3. 이벤트 내장 - href 이동(기본적으로 파란글씨, 밑줄) -->
+</body>
+</html>

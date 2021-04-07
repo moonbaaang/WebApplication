@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+
+	function f1(){
+		alert("A")
+	}
+	
+	f1();
+	
+	function f3(){
+		alert("B")
+	}
+	
+	f3();
+</script>
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+var b = "<br>";
+var ar1 = [1, "java", true, 200.99, "300"];
+document.write(ar1.length + b);
+document.write(ar1+b);
+document.write(ar1.join("/")+b);
+
+</script>
+</body>
+</html>

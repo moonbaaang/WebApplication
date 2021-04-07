@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	//document.querySelector("div").innerHTML += "내용수정"; // div텍스트 setter
+	//alert(document.querySelector("div").innerHTML)// div텍스트 getter
+//	document.querySelector("div").textContent="<h1>어떻게 보이나요?</h1>";
+//	alert(document.querySelector("div").textContent)
+}
+</script>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+/*	$("div").html("내용 추가 수정"); // div텍스트 setter - html() >> 내용 변경됨
+	$("div").html($("div").html()+"내용 추가 수정"); 
+	alert($("div").html())// div텍스트 getter
+*/
+//	$("div").text($("div").text()+"<h1>내용 추가 수정</h1>"); 
+// 	alert($("div").text())// div텍스트 getter
+	
+	$("input[type=text]").val()
+	$("#here").html(value)
+
+});
+</script>
+</head>
+<body>
+
+<div> div 태그의 innerhtml 영역입니다. </div>
+<input type=text value="입력값입니다.">
+<input type=password>
+<input type=checkbox value="choice1"> 선택1
+<div id="here"> 여기에 결과가 보입니다. </div>
+</body>
+</html>

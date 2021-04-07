@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="jquery-3.2.1.min.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$("h1").on("click", function(){
+		alert(1);
+		$(this).css("background-color","red")
+	});
+	
+	$("div").on("click", function(){
+		alert(2)
+		$(this).css("background-color","yellow");
+		$(this).css("width","200px");
+	});	
+}); //ready end
+</script>
+</head>
+<body>
+<!-- <h1><a href="a.html" target="_blank">이동</a></h1>
+ -->
+<h1><div>클릭합니다.</div></h1>
+</body>
+</html>

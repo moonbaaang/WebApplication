@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>BJ's html5</title>
+<link rel=stylesheet href=Style.css>
+<style>
+	h1{
+		color:white;
+		background:black;
+	}
+</style>
+</head>
+<body>
+
+</body>
+</html>

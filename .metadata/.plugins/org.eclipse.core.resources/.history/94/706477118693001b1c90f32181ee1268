@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+
+1. prompt 창에서 입력한다.
+학생이름(공백) 국어(공백) 영어(공백) 수학
+</script>
+</body>
+</html>

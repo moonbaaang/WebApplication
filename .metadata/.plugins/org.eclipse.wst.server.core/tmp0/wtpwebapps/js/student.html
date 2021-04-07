@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<script type="text/javascript">
+/* 내가 작성한 것
+alert("메시지 - 다음과 같은 항목을 올바르게 입력하세요");
+var prom = prompt("학생이름 국어 영어 수학을 입력하세요");
+document.write(prom+"<br>")
+var conf = confirm("확실합니까?") // 확인, 취소, ok/cancel 버튼 2개 마우스 입력
+
+var list = prom.split(" ");
+var total = parseInt(list[1])+parseInt(list[2])+parseInt(list[3]);
+var doubleAvg = total/3;
+var intAvg = parseInt(doubleAvg);
+document.write("평균"+intAvg+"점 입니다."+"<br>")
+if(intAvg >= 90){
+	document.write("A등급입니다.");
+}else if(intAvg<90 && intAvg >=80){
+	document.write("B등급입니다.");
+}else if(intAvg<80 && intAvg>=70){
+	document.write("C등급입니다.");
+}else if(intAvg<70 && intAvg>=60){
+	document.write("D등급입니다.");
+} else {
+	document.write("F등급입니다.");
+}
+*/	
+	
+var inform = prompt();
+var inform_list = inform.split(" ");
+
+var student = {
+	name : inform_list[0],
+	kor : inform_list[1], 
+	eng : inform_list[2],
+	mat : inform_list[3],
+	sum: 0,
+	avgFloat: 0,
+	avgInt: 0,
+	grade : "",
+	calc : function(){
+		this.kor = parseInt(this.kor);
+		this.eng = parseInt(this.eng);
+		this.mat = parseInt(this.mat);
+		this.sum = this.kor+this.eng+this.mat;
+		this.avgFloat = this.sum/3;
+		this.avgInt = parseInt(this.avgFloat);
+	},
+	getGrade : function(){
+		if(this.avgInt >= 90){
+			this.grade = "A등급";
+		}else if(this.avgInt>=80){
+			this.grade = "B등급";
+		}else if(this.avgInt>=70){
+			this.grade = "C등급";
+		}else if(this.avgInt>=60){
+			this.grade = "D등급";
+		}else{
+			this.grade = "F등급";
+		}
+	},
+	toString : function(){
+		return "이름 = " + this.name+" <br>국어 = "+this.kor+"<br>영어 = "
+		+this.eng+"<br>수학 = "+this.mat+"<br>총점 = "+this.sum+"<br> 실수평균 ="
+		+this.avgFloat+"<br>정수평균 = "+this.avgInt+"<br> 등급 =" +this.grade;
+	}
+};
+
+student.calc();
+student.getGrade();
+document.write(student+"<br>");
+
+// 자바스크립트 객체 - json 변환 함수
+var json_student = JSON.stringify(student);
+document.write(json_student+"<br>")
+
+
+
+//{"name":"김자바","kor":100,"eng":90,"mat":70,"sum":260,"avgFloat":86.66666666666667,"avgInt":86,"grade":"B등급"}
+//json파일 > 다른 프로그램에 전달하기 위해 이러한 형태로 만듦
+var origin_student = JSON.parse(json_student);
+document.write(origin_student.name+"<br>"); // origin.name/math etc..
+document.write(origin_student.grade+"<br>");
+/*
+1. prompt 창에서 입력한다.
+학생이름(공백) 국어(공백) 영어(공백) 수학
+2. 입력한 정보를 분리한다
+3. 총점, 평균(실수), 평균(정수) 계산한다.
+4, 정수평균에 따라서 등급
+90이상 A
+80이상 90미만 B
+70이상 80미만 C
+60이상 70미만 D
+나머지 F
+5. 출력한다.
+>> student 객체 정의
+*/
+</script>
+</body>
+</html>

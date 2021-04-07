@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<script type="text/javascript">
+/*
+	var f1 = function(){
+		alert("C");
+		//return 10;
+	}
+	
+	function f1(){
+		alert("A");
+	}
+	
+	function f1(){
+		alert("B")
+	}
+*/	
+	//f1();
+	//alert(f1); //f1함수의 구현 내용을 보여준다.
+	//alert(f1()); //f1함수 실행 리턴값 출력, 없으면 undefined
+	
+	function manytimes(f, n){
+		for(var i = 1; i <= n; i++){
+			f("f함수를 이용하여 html 을 n번 출력");			
+		}
+	}
+	
+	function tentimes(f){
+		for(var i = 1; i <= 10 ; i++){
+			f("자바스크립트");
+		}
+	}
+	
+	function print(message){
+		document.write("<h1>"+message+"</h1>");
+	}
+	
+	manytimes(print, 5);
+//	tentimes(print);
+
+
+var a = "전역";
+function vartest(){
+	var a = "지역";
+	document.write("<h1>"+this.a+"</h1>")
+	a = "변경";
+}
+
+function vartest2(){
+	var a = "지역2";
+	document.write("<h1>"+a+"</h1>")
+
+}
+
+vartest();
+document.write("<h1>"+a+"</h1>");
+
+
+</script>
+</body>
+</html>

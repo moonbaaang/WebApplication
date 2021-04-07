@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+	function f1(){
+	var div_list = document.getElementsByTagName("div");
+	alert(div_list[0].innerHTML);
+	var date = new Date();
+	//var datestring = date.getLocaleDateString();
+	div_list[0].innerHTML = datestring;
+	}
+	
+	setTimeout(f1, 5000);
+</script>
+</head>
+<body>
+
+<script type="text/javascript">
+
+</script>
+
+<div>시간 출력 예정입니다. </div>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<h1>  이미지 보여주기  </h1>
+<img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"
+alt="이미지 경로가 잘못되었습니다."></img>
+<img src="/html/images/html5.jpg">
+<img src="images/html5.jpg">
+<br>
+<h1>  오디오 들려주기 </h1>
+<audio src="multimedia/old_pop.mp3" controls="controls"></audio>
+<br>
+<h1>  비디오 보여주기  </h1>
+<video src="multimedia/Wildlife.mp4" controls="controls"
+poster="images/chrome.jpg"></video>
+</body>
+</html>

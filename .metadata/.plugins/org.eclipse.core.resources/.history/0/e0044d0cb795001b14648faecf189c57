@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form action="a.jsp">
+	<input type=text value="입력하세요"><br>
+	<input type=submit value="전송"><br>
+	<input type=reset value="지움"><br>
+	<!-- 버튼 형태 -->>
+	<input type=button value="기능없음"><br>
+</form>
+</body>
+</html>

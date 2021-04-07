@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+<div> div태그 - block형식 </div>
+<div> div태그 - block형식 </div>
+<div> div태그 - block형식 </div>
+
+
+<span> span태그 - block형식 </span>
+<span> span태그 - block형식 </span>
+<span> span태그 - block형식 </span>
+
+
+</body>
+</html>

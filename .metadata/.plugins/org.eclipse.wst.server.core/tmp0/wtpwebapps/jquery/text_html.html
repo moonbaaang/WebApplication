@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	//document.querySelector("div").innerHTML += "내용수정"; // div텍스트 setter
+	//alert(document.querySelector("div").innerHTML)// div텍스트 getter
+//	document.querySelector("div").textContent="<h1>어떻게 보이나요?</h1>";
+//	alert(document.querySelector("div").textContent)
+}
+</script>
+<script src="jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+/*	$("div").html("내용 추가 수정"); // div텍스트 setter - html() >> 내용 변경됨
+	$("div").html($("div").html()+"내용 추가 수정"); 
+	alert($("div").html())// div텍스트 getter
+*/
+//	$("div").text($("div").text()+"<h1>내용 추가 수정</h1>"); 
+// 	alert($("div").text())// div텍스트 getter
+	
+	var value = $("input[type=text]").val()
+	var value2 = $("input[type=checkbox]:checked").val() //첫번째의 val()값만 읽어줌 
+//	var value3 = $("input[type=checkbox]"); //jquery객체를 자바스크립트 변수로 만듬
+//	$("#here").html("<h1>"+value2+"<h1>")
+//	$("#here").html(value3[0].value+":"+value3[1].value);
+	
+//	var value3 = $("input[type=checkbox]").val(function(){
+//		$("#here").html($("here").html()+":"+$(this).val());
+//	}); //반복하며 값 가져온다.
+	
+	var value3 = $("input[type=checkbox]").val(function(){
+		//$("#here").html($("here").html()+":"+$(this).val());
+		$("#here").append($(this).val()+":");
+	}); //반복하며 값 가져온다.
+	
+});
+</script>
+</head>
+<body>
+
+<div> div 태그의 innerhtml 영역입니다. </div>
+<input type=text value="입력값입니다.">
+<input type=password>
+<input type=checkbox value="choice1"> 선택1
+<input type=checkbox value="choice2" checked="checked"> 선택2
+<!-- <input type=checkbox value="choice3"> 선택3 -->
+<div id="here"> 여기에 결과가 보입니다. </div>
+</body>
+</html>
