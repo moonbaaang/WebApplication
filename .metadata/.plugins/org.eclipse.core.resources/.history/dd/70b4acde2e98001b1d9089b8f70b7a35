@@ -1,0 +1,36 @@
+package board;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/boardwrite")
+public class BoardInsertServlet extends HttpServlet {
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String title = request.getParameter("title");
+		String contents = request.getParameter("contents");
+		String writer = request.getParameter("writer");
+		String password = request.getParameter("password");
+		BoardDAO dao = new BoardDAO();
+		BoardDTO dto = new BoardDTO();
+		
+		dto.setTitle(title);
+		dto.setContents(contents);
+		dto.setWriter(writer);
+		dto.setPassword(Integer.parseInt(password));
+		
+		dao.insertBoard(dto);
+		response.setContentType("text/html;charset=utf-8");
+		PrintWriter out = response.getWriter();
+		String result = "<h1>글쓰기완료</h1>";
+		result+="<a href='boardlist?page=1'>리스트로 이동</a>";
+		out.println(result);
+	}
+
+}

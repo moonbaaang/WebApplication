@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(e){//이벤트객체
+	//클릭버튼2 라는 value를 가진 태그 읽어와서
+	var click1 = document.getElementById("click1");
+	click1.onclick = function(){// event : [object MouseEvent]
+		//alert(ev.target.tagName);//input 
+		//alert(this.tagName);
+		click1.value="수정";
+		
+	}//onclick end
+}//onload end
+
+
+</script>
+</head>
+<body>
+<form action="a.jsp">
+	<input type=text value=" 입력하세요 " ><br>
+	<input type=submit value="전송"><br><!-- 버튼형태. 클릭동작.(action속성지정파일로 이동) -->
+	<input type=reset value="지움"><br><!-- 버튼형태. 클릭동작.(입력내용 초기화) -->
+	<input type=button value="클릭버튼" onclick="alert('클릭');"><br>
+	<input type="button" id="click1" value="클릭버튼2" ><br>
+	<button ><img src=""><b>클릭버튼3</b></button>
+	<!-- 버튼형태. 클릭동작.(.....) -->
+</form>
+</body>
+</html>
+
+
+
+
+

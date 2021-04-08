@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script type="text/javascript">
+window.onload = function(){
+	document.querySelector("a").onclick = function(e){
+		e.preventDefault();
+	}
+	document.querySelector("#f").onsubmit = function(e){
+		e.preventDefault();
+	}
+	
+	//링크정보 버튼 클릭하면
+	let button = document.querySelector("#inform");
+	let div = document.querySelector("#result");
+	button.onclick = function(){
+		 var a_list = document.querySelectorAll("a");
+	//	 for(var i = 0; i < a_list.length; i++){
+	//		 div.innerHTML += a_list[i].innerHTML + " - " + a_list[i].href +"<BR>";
+	//	 }
+	
+	     a_list.forEach(function(one){
+	    	 div.innerHTML += one.innerHTML + " - " + one.href +"<BR>"
+	     } );
+	}
+	
+	//mouse  이동시마다 색상 . 표준 이벤트 모델+화살표함수
+	document.querySelector("#mousetest").addEventListener
+	("mouseover",  ()=>{
+		document.querySelector("#mousetest").style.backgroundColor = "green";
+		}
+	);
+			
+	document.querySelector("#mousetest").addEventListener
+	("mouseout",  ()=>{
+		document.querySelector("#mousetest").style.backgroundColor = "red";
+		}
+	);
+}
+</script>
+</head>
+<body>
+<a href="http://www.multicampus.co.kr" target="_blank">멀캠으로 이동 </a>
+<a href="http://www.google.co.kr" target="_blank">구글로 이동 </a>
+<a href="http://www.apple.co.kr" target="_blank">애플로 이동 </a>
+<a href="http://www.daum.net" target="_blank">다음으로 이동 </a>
+
+
+<!-- 1. 화면구성요소 2.css 내장-  파랑색 밑줄 글씨  3.  이벤트 내장- href 이동 
+a, <input type=submit , <input type=reset 
+-->
+<form id="f" action="a.jsp">
+ <input type=text >
+ <input type=submit value="전송">
+</form>
+
+<button id="inform"><b>링크정보</b></button>
+<div id="result">
+<!-- 
+링크정보 버튼 클릭하면 
+현재 페이지에  a태그 존재하는 만큼
+각 a태그
+멀캠으로 이동 - http://www.multicampus.co.kr
+.....
+
+ -->
+<div id="mousetest"> 마우스 올려보세요 </div>
+
+
+</div>
+</body>
+</html>

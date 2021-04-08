@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<!-- <script scr="jquery-3.2.1.min.js"></script>-->
+<script type="text/javascript">
+window.onload = function(){
+//	document.querySelector("div").innerHTML += "내용 추가합니다.";
+//	alert(document.querySelector("div").innerHTML);
+}
+
+</script>
+<script src = "jquery-3.2.1.min.js"></script>
+<script>
+$(document).ready(function(){
+/*	$("div").html("내용을 수정합니다.");
+	$("div").html($("div").html()+"내용을 추가합니다.");
+	alert($("div").html()); */
+	
+	$("div").text($("div").text()+"<h1>내용 추가 수정</h1>");
+	alert($("div").text()); //getter
+	
+})
+</script>
+
+</head>
+<body>
+	<div> div태그의 innerHTML영역입니다. </div>
+</body>
+</html>
