@@ -1,0 +1,24 @@
+package tv;
+
+import org.xml.sax.SAXNotRecognizedException;
+
+public class TVMain {
+
+	// tv 객체를 변경하니 같이 변경 코드가 따라오는 경우 - coupling이 높다
+	// 커플링이 높은 코드가 필요할 수도 / 낮은 코드가 필요할 수도 있다.
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+/*		SamsungTV tv = new SamsungTV();
+		tv.turnOn();
+		tv.soundUp();
+		tv.soundDown();
+		tv.turnoff();
+*/
+		LGTV tv = new LGTV();
+		tv.powerOn();
+		tv.volumeUp();
+		tv.volumeDown();
+		tv.powerOff();
+	}
+
+}

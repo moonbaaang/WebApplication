@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<beans id="vo" class="emp.spring.EMPVO" />
+<beans id="vo2" class="emp.spring.MemberVO" />
+<beans id="dao" class="emp.spring.EmpDAO" />
+</beans>

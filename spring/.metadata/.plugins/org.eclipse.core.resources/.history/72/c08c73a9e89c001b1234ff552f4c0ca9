@@ -1,0 +1,25 @@
+package test;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/dispatcher")
+public class DispatcherServlet extends HttpServlet {
+//http:127.0.0.1:9090/nonspringmvc/dispatcher/hello.mvc
+//http:127.0.0.1:9090/nonspringmvc/dispatcher/boardlist.mvc
+// HelloController - "hellospring = hello.jsp
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		protected void doGet(HttpServlet request, httpServlet response) {
+			String path = request.getRequestURI();
+			String path_sql [] = path.split("/");
+			String result = path_sql[path_spl.length-1];
+			System.out.println(result);
+		}
+	}
+
+}

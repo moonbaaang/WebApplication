@@ -1,0 +1,16 @@
+package member;
+
+public class MemberMain {
+
+	public static void main(String[] args) {
+		MemberVO vo = new MemberVO("spring", "work");
+		MemberDAO dao = new MemberDAO();
+		dao.setMemberVO(vo);
+		boolean login = dao.selectMember();
+		if(login) {
+			System.out.println("정상로그인 사용자");
+		}
+		dao.insertMember();
+	}
+
+}

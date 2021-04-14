@@ -1,0 +1,16 @@
+package tv;
+
+import org.xml.sax.SAXNotRecognizedException;
+
+public class TVMain {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		SamsungTV tv = new SamsungTV();
+		tv.turnOn();
+		tv.soundUp();
+		tv.soundDown();
+		tv.turnoff();
+	}
+
+}

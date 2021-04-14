@@ -1,0 +1,7 @@
+package emp;
+
+public interface VO {
+	public void setId();
+	public void setName();
+	public void setSalary();
+}

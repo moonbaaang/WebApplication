@@ -1,0 +1,6 @@
+package emp;
+
+public interface VO {
+	public void setId(String id);
+	public void setName(String name);
+}

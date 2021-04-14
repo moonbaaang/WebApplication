@@ -1,0 +1,8 @@
+package member;
+
+public class MemberDAO {
+	MemberVO vo;
+	public setMemberVO(MemberVO vo) {
+		this.vo = vo;
+	}
+}

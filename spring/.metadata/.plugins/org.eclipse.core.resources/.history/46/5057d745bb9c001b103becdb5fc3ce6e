@@ -1,0 +1,24 @@
+package tv.spring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.xml.sax.SAXNotRecognizedException;
+
+public class TVMain {
+
+	public static void main(String[] args) {
+		//spring이 설정한 객체 주입 설정 파일 읽어옴
+		ApplicationContext factory = 
+				new ClassPathXmlApplicationContext("tv/spring/tv.xml");
+		
+		TV tv = factory.getBean("vo", TV.class);
+		
+		tv.powerOn();
+		tv.soundUp();
+		tv.soundDown();
+		tv.powerOff();
+		
+
+	}
+
+}

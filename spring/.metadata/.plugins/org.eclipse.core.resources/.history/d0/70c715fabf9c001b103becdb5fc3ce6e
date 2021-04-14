@@ -1,0 +1,10 @@
+package emp.spring;
+
+public class EmpDAO {
+	void insertEmp(VO vo){ // ��������� �ٸ� ��ü�κ��� ���޹޴´� = ���Թ޴´�. Injection(�Ű����� ��ü)
+		// �ܺηκ��� ���޹��� ��ü ȣȯ
+
+		
+		System.out.println("db ��� �Ϸ�");
+	}
+}

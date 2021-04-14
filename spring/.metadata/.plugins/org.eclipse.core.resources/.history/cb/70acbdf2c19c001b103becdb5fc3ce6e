@@ -1,0 +1,24 @@
+package emp.spring;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class EmpMain {
+
+	public static void main(String[] args) {
+		ApplicationContext factory = new ClassPathXmlApplicationContext("emp/spring/emp.xml");
+		
+		VO vo = factory.getBean("vo", VO.class);
+
+		
+		VO vo2 = new MemberVO();
+		vo2.setId(200);
+		vo2.setName("김회원");
+
+		EmpDAO dao = new EmpDAO();
+
+		
+		System.out.println("등록이 완료되었습니다.");
+	}
+
+}

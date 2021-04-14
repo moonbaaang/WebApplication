@@ -1,0 +1,23 @@
+package emp;
+
+public class EmpMain {
+
+	public static void main(String[] args) {
+		EmpVO vo = new EmpVO();
+		vo.setId(100);
+		vo.setName("이사원");
+		vo.setSalary(12302410.10);
+		MemberVO vo2 = new MemberVO();
+		
+		
+		MemberVO vo2 = new MemberVO();
+		vo2.setId(200);
+		vo2.setName("김사원");
+		vo2.setEmail("M@naver.com");
+		EmpDAO dao = new EmpDAO();
+		dao.insertEmp(vo2); //주입
+		
+		System.out.println("회원등록을 마쳤습니다.");
+	}
+
+}

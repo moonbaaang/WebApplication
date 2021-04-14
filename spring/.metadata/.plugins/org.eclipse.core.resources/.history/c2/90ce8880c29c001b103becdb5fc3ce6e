@@ -1,0 +1,15 @@
+package emp.spring;
+
+public class EmpDAO {
+	void insertEmp(VO vo){ 
+		
+		if(vo instanceof EmpVO) {
+			EmpVO e = (EmpVO)vo;
+		}
+		else if (vo instanceof MemberVO){
+			MemberVO = (Member VO)vo;
+		}
+		
+		System.out.println("db 등록");
+	}
+}

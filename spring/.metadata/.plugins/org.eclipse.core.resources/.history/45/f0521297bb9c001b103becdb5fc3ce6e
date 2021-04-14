@@ -1,0 +1,17 @@
+package tv.spring;
+
+public class LGTV implements TV{
+	public void powerOn() {
+		System.out.println("LGTV ���� �Ѵ�");
+	}
+	public void powerOff() {
+		System.out.println("LGTV ���� ����");
+	}
+	
+	public void soundUp() {
+		System.out.println("LGTV ���� ���̴�");
+	}
+	public void soundDown() {
+		System.out.println("LGTV ���� ���ߴ�");
+	}
+}

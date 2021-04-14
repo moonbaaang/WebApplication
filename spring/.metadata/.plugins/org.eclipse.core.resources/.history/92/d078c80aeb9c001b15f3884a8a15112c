@@ -1,0 +1,28 @@
+package test;
+
+
+import java.io.IOException;
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/dispatcher")
+public class DispatcherServlet extends HttpServlet {
+//http:127.0.0.1:9090/nonspringmvc/dispatcher/hello.mvc
+//http:127.0.0.1:9090/nonspringmvc/dispatcher/boardlist.mvc
+// HelloController - "hellospring = hello.jsp
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+			String path = request.getRequestURI();
+			String path_sql [] = path.split("/");
+			String result = path_sql[path_sql.length-1];
+			System.out.println(result);
+			
+			//1.helloController 호출
+			HandlerMapping mapping = new HandlerMapping(); //hello.mvc - HelloController 객체 생성
+			Controller controller = mapping.getController("hello.mvc");
+			
+	}
+
+}
