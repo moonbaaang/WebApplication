@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="emp">
+
+	<select id="empall" resultType="emp">
+	   select * from employees
+	</select>
+
+	<select id="empone" resultType="emp" 
+	parameterType="int">
+		select * from employees where employee_id=#{id}
+	</select>
+	
+	<select id="empname" resultType="emp" 
+	parameterType="String">
+		select employee_id, first_name, last_name 
+		from employees where first_name=#{a}
+	</select>	
+	
+	<select id="empwhere" resultType="emp" 
+	parameterType="int">
+	<![CDATA[select employee_id, first_name, last_name 
+		from employees where employee_id <= #{c}]]>
+	</select>
+	
+	<insert id="insertemp" parameterType="emp">
+		insert into employees
+		(employee_id, last_name, email, hire_date, 
+		job_id, department_id) 
+		values
+		(#{employee_id}, #{last_name}, #{email}, 
+		sysdate, #{job_id}, #{department_id})
+	</insert>
+
+	<update id="updateemp" parameterType="emp">
+	 update employees
+	 set last_name = #{last_name}, 
+	 department_id = #{department_id}
+	 where employee_id = #{employee_id}
+	</update>	
+	
+	<delete id="deletehistory" parameterType="int">
+	delete job_history where employee_id = #{id}
+	</delete>
+
+	<delete id="deleteemp" parameterType="int">
+	delete employees where employee_id = #{id}
+	</delete>
+	
+	<select id="cntemp" resultType="int">
+	select count(*) from employees
+	</select>
+	
+   <select id="emppage" resultType="emp" 
+   parameterType="int[]">
+   select r, employee_id, last_name, hire_date
+   from  (select rownum r, employee_id, last_name, 
+          hire_date
+   	      from (select * from employees 
+   	           order by hire_date desc)
+          )
+   where  r between 
+   <foreach collection="array" item="a" separator="and">
+     #{a}
+   </foreach>  
+  </select>
+
+ <insert id="insertempwithseq" parameterType="emp">
+     <selectKey keyProperty="employee_id" 
+    order="BEFORE" resultType="int">
+    select mybatis_emp_seq.nextval from dual
+ <!--      select max(employee_id)+1 from employees -->
+    </selectKey> 
+	insert into employees(employee_id, last_name, email, 
+	hire_date, job_id, department_id) 
+	values(#{employee_id}, #{last_name}, #{email}, 
+	sysdate, #{job_id}, #{department_id})	
+ </insert>
+ 
+ <!-- 
+ 자바소스
+ int [] dept = {50, 80, 100};
+ session.selectList("emp.empwitharray", dept);
+  -->
+ <select id="empwitharray" resultType="emp" 
+ parameterType="int[]" >
+ 	select * from employees
+ 	where department_id in 
+ 	<foreach collection="array" item="a" 
+ 	separator="," open="(" close=")">
+ 	 #{a}
+ 	</foreach> 
+</select>
+
+ <select id="empwithlist" resultType="emp" 
+ parameterType="java.util.List" >
+ 	select * from employees
+ 	where department_id in 
+ 	<foreach collection="list" item="a" 
+ 	separator="," open="(" close=")">
+ 	 #{a}
+ 	</foreach> 
+</select>
+
+
+<!-- HashMap<String, String> map = new..... 
+map.put("deptid", "50");
+map.put("emp_id", "1000");
+map.put("email", "lee@a.com");
+
+-->
+<update id="updateempwithmap" 
+parameterType="java.util.Map" >
+ update employees
+ set department_id = #{deptid} , email = #{email}
+ where employee_id = 
+ <if test="emp_id != null" > #{emp_id} </if>
+ <if test="emp_id == null" > 3 </if>
+</update>
+
+<select id="empwithresultmap" resultMap="empmap">
+select first_name||','||last_name as fullname,
+phone_number
+from employees
+where employee_id=100
+</select>
+
+<!-- EmpVO객체 phone 변수에 phone_number 컬럼 매핑 -->
+<resultMap type="emp" id="empmap" >
+<result property="phone" column="phone_number" />
+<result property="last_name" column="fullname" />
+</resultMap>
+
+ 
+
+
+</mapper>
+
+
+
+
+
+
+
+
+
+<!--<select id="test" resultMap="testresult">
+select last_name || ',' || first_name as fullname,
+phone_number 
+from employees
+where employee_id=100
+</select>
+
+<resultMap id="testresult" type="emp">
+<result property="last_name" column="fullname" />
+<result property="phone" column="phone_number" />
+</resultMap>-->
+
