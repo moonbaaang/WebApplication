@@ -1,89 +1,55 @@
 package mybatis;
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.ibatis.session.SqlSession;
 
 public class EmpDAO {
-	
-	SqlSession session;//mybatis dbconnection 
-		
+	SqlSession session;
+
 	public void setSession(SqlSession session) {
 		this.session = session;
 	}
-
-	public List<EmpVO> getEmpList(){
-		//sql 정의 -sql-mapping.xml -- 호출 실행 요청 
-	    //emp.empall
-		List<EmpVO> list=session.selectList("emp.empall");
-		return list;
-	}
-	/*<select id="empone" resultType="emp" 
-	parameterType="int">
-		select * from employees where employee_id=#{id}
-	</select>*/
-	public EmpVO getEmpOne(int id){
-		EmpVO vo = session.selectOne("emp.empone" , id);
+	
+	public EmpVO getOneEmp(int employee_id) {
+		EmpVO vo = session.selectOne("emp.oneEmp", employee_id);
 		return vo;
 	}
-
-	public List<EmpVO> getEmpName(String name){
-		//1 or 0 or n
-		List<EmpVO> list = session.selectList("emp.empname" , name);
-		return list;
-	}	
 	
-	public List<EmpVO> getEmpWhere(int id){
-		return session.selectList("emp.empwhere", id);
+	//타입을 mybatis가 자동 결정한다.
+	public List<EmpVO> getAllEmp(){
+		List<EmpVO> list = session.selectList("emp.manyEmp");
+		return list;
 	}
 	
 	public void insertEmp(EmpVO vo) {
-		session.insert("emp.insertemp", vo);
+		session.insert("emp.insertEmp", vo);
 	}
 	
 	public void updateEmp(EmpVO vo) {
-		session.update("emp.updateemp", vo);
+		session.update("emp.updateEmp", vo);
 	}
 	
-	//dao - 메소드 - mapping sql 1개 실행
-	public void deleteHistroy(int id) {
-		session.delete("emp.deletehistory", id);
-	}
-
-	public void deleteEmp(int id) {
-		session.delete("emp.deleteemp", id);
+	public void deleteEmp(int employee_id) {
+		session.delete("emp.deleteEmp", employee_id);
 	}
 	
-	public int getEmpCount() {
-		return session.selectOne("emp.cntemp");
+	public List<EmpVO> getPageEmp(int[] nums){
+		return session.selectList("emp.pageEmp", nums);
 	}
 	
-	public List<EmpVO> getEmpPage(int[] ar){
-		return session.selectList("emp.emppage", ar);
+	public void insertEmp2(EmpVO vo) {
+		session.insert("emp.insertEmp2", vo);
 	}
 	
-	public void insertEmpWithSeq(EmpVO vo) {
-		session.insert("emp.insertempwithseq", vo);
+	public List<EmpVO> getEmpDept(List<Integer> deptList){
+		return session.selectList("emp.selectwithlist", deptList);
 	}
 	
-	public List<EmpVO> getEmpWithArray(int[] dept){
-		return 
-		session.selectList("emp.empwitharray", dept);
-	}
-	
-	public void updateEmpWithMap
-	(HashMap<String, String> map) {
-		session.update("emp.updateempwithmap", map);
-	}
-	
-	public EmpVO getEmpWithResultMap() {
-		return session.selectOne("emp.empwithresultmap");
+	public void updateEmpMap(Map<String, String> map) {
+		session.update("emp.updatewithmap", map);
+		
 	}
 }
-
-
-
-
-
-
