@@ -159,17 +159,12 @@ mybatis.config-location=classpath:db-config.xml
 
 8> src/main/resources/application.properties
 
-src/main/resources/static/html css js gif 저장
+* src/main/resources/static/html css js gif 저장
 
-src/main/resources/static/templates/타임리프포함 html파일 (설정 추가)
-
-boot는 기본적으로 타임리프라는 뷰(*.html)를 기본 템플릿으로 가짐
+* src/main/resources/static/templates/타임리프포함 html파일 (설정 추가)
+  * boot는 기본적으로 타임리프라는 뷰(*.html)를 기본 템플릿으로 가짐
 
 \<th:xxx>
-
-\<script src="/static/jquery-3.2.1.min.js">
-
-경로는 다음과 같이 resources 폴더가 기본
 
 | src/main/webapp | resources | html css js gif 저장 |             |
 | --------------- | --------- | -------------------- | ----------- |
@@ -177,37 +172,160 @@ boot는 기본적으로 타임리프라는 뷰(*.html)를 기본 템플릿으로
 |                 |           | views                | jsp포함     |
 |                 |           | spring               | 설정xml포함 |
 
- 9> spring mvc - pom.xml 라이브러리 추가
+9> \<script src="/static/jquery-3.2.1.min.js">
 
-9-1) ajax - boot에선 라이브러리 이미 포함
+* 경로는 다음과 같이 resources 폴더가 기본
 
-@ResponseBody 어노테이션만 사용하면 됨
+10> spring mvc - pom.xml 라이브러리 추가
 
-9-2) file upload -boot에선 라이브러리 이미 포함
+*  ajax > boot에선 라이브러리 이미 포함
+  * @ResponseBody 어노테이션만 사용하면 됨
 
-mvc >>> MultipartFile api 이용하려면 >> CommonsMultipartFileResolver선언
-
-boot >> 자동 포함
-
-
-
-
+*  file upload > boot에선 라이브러리 이미 포함
+  * mvc >> MultipartFile api 이용하려면 >> CommonsMultipartFileResolver선언
+  * boot >> 자동 포함
 
 * mybatis 추가
-  * 프로젝트 우클릭 - spring - add starter - SQL - JDBC api, mybatis framework, oracle driver 추가 - next - pom.xml  선택(구성내용 추가)
+  * 프로젝트 우클릭 - spring - add starter - SQL - JDBC api, mybatis framework, oracle driver 추가 - next - pom.xml  선택(구성내용 자동추가)
 
-* mybatis - spring mvc
+* mybatis - spring mvc에서 설정 방법
   * 1> sql 매핑 xml 단독설정
   * 2> sql매핑 xml + dao 파일들 같이 매핑
 
-* mybatis - spring boot
-  * 2> sql매핑 xml + dao 파일들 같이 매핑
-  * DAO > 인터페이스로 변경, @Mapper 선언
+* mybatis - spring boot에서 설정 방법
+  * sql매핑 xml + dao 파일들 같이 매핑
+  * DAO > 인터페이스로 설정 후 @Mapper 선언
 
 | @Mapper<br />@Repository<br />interface EmpDAO<br />List\<EmpVO> <u>**getEmpList()**</u>; | sql 매핑 xml                                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | @Repository<br />class EmpDAO<br />@Autowired<br />SqlSession session<br />List\<EmpVO> getEmpList(){<br />(기존 mvc에서 dao선언) | \<mapper: EmpDAO<br />\<select id="**<u>getEmpList()</u>**" resultType="empVO"<br />mapper 동일하게, id=메서드이름 |
 
 * EmpDAO - interface 선언, @Mapper로 변경
+* Annotation 설정
+  * ProjectNameApplication.java 에서 @ComponentScan, @MapperScan 등록
+    * ex) @ComponentScan(basePackageClasses = EmpController.class)
+      * EmpController 클래스가 존재하는 package 자동 스캔
+      * EmpController 클래스 위에 @Controller Annotation 첨부
+    * @ComponentScan >>>  ProjectNameApplication.java 가 포함된 패키지와 같은 패키지의 컨트롤러 자동 스캔
 
-* Myboot01Application.java 에서 @ComponentScan, @MapperScan 등록
+* Mapper 설정
+  * ex) @MapperScan(basePackageClasses = EmpDAO.class)
+    * EmpDAO 인터페이스가 존재하는 package 자동 매핑
+    * EmpDAO 에서 @Mapper / @Repository("dao") annotation 설정
+
+#### mybatis.xml 설정
+
+```xml
+<!--1. 데이터 연결 conn 설정 -->
+<bean id="dataSource" 
+class=
+"org.springframework.jdbc.datasource.DriverManagerDataSource" >
+	<property name="driverClassName" 
+	value="oracle.jdbc.driver.OracleDriver" />
+	<property name="url" 
+	value="jdbc:oracle:thin:@localhost:1521:xe" />
+	<property name="username" value="name" />
+	<property name="password" value="pw" />			
+</bean>
+
+<!-- SqlSessionFactoryBean 설정 -->
+<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+	<property name="dataSource" ref="dataSource" />
+	<property name="configLocation" 
+	value="classpath:spring_mybatis/db-config.xml" />	 
+	<property name="mapperLocations"
+	value="classpath:spring_mybatis/*-mapping.xml" />
+</bean>
+
+<!-- SqlSessionTemplate api-->
+<bean id="sqlSession" 
+class="org.mybatis.spring.SqlSessionTemplate">
+	<constructor-arg ref="sqlSessionFactory" />
+</bean>
+```
+
+#### db-config.xml 설정
+
+```xml
+<configuration>
+	<!-- 
+	타입 alias : 
+	mybatis.EmpVO : SQL결과 데이터 저장 
+	별명 : emp 
+	-->
+	<typeAliases>
+		<typeAlias type="spring_mybatis.EmpVO" alias="empVO"/>
+	</typeAliases> 
+	
+
+<!-- sql mapping 파일 설정 -->
+	<mappers>
+		<mapper resource="mybatis/sql-mapping.xml"/>  
+	</mappers> 
+</configuration>
+```
+
+
+
+##### 번외
+
+### File upload
+
+* uploadVO
+
+```java
+public class UploadVO { 
+	String name;
+	String description;
+	MultipartFile file1;
+	MultipartFile file2;
+    //이하 setter/getter 생략
+```
+
+* uploadController
+
+```java
+@Controller
+public class UploadController{
+    
+    public static String getUuid(){
+        return UUID.randomUUID().toString().replaceAll("-", "").substring(0,10);
+    }
+    
+    @RequestMapping(value="/fileupload", method=RequestMethod.GET)
+    public String uploadform(){
+        return "/upload/uploadform"
+    }
+    
+    @RequestMapping(value="fileupload", method=RequestMethod.POST)
+    public String uploadresult(@ModelAttribute("vo") UploadVO vo) throws IOException{
+        MultipartFile multipartfile1 = vo.getFile1();
+        MultipartFile multipartfile2 = vo.getFile2();
+        
+        String filename1 = multipartfile1.getOriginalFilename();
+        String filename2 = multipartfile2.getOriginalFilename();
+        
+        String savePath = "c:/upload/";
+        
+        //중복파일처리
+        String path [] = filename1.split("[.]");
+        String ext1 = filename1.substring(filename1.lastIndexOf("."));
+        String ext2 = filename2.substring(filename2.lastIndexOf("."));
+        
+       	filename1 = getUuid() + "("+multipartfile1.getOriginalFilename()+")" + ext1;
+		filename2 = getUuid() + "("+multipartfile2.getOriginalFilename()+")" + ext2;
+
+		
+		// path+name
+		File file1 = new File(savePath+filename1);
+		File file2 = new File(savePath+filename2);
+		
+		//서버 저장
+		multipartfile1.transferTo(file1);
+		multipartfile2.transferTo(file2);
+		
+		return "/upload/uploadresult"; 
+    }
+}
+```
+
